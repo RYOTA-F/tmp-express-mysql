@@ -9,7 +9,7 @@ interface DatabaseTypes {
 }
 
 export const dbSetting: DatabaseTypes = {
-  database: process.env.MYSQL_DATABASE,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
 }

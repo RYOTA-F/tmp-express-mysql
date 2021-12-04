@@ -1,7 +1,7 @@
 version: "3"
 services:
   server:
-    container_name: server
+    container_name: express_server
     build: ./docker/express
     ports:
       - 3000:3000
@@ -18,7 +18,7 @@ services:
       - db
 
   db:
-    container_name: db
+    container_name: express_db
     image: mysql:8.0
     volumes:
       - express_data:/var/lib/mysql
