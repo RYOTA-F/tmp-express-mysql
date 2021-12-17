@@ -3,7 +3,7 @@ import { Op } from 'sequelize'
 import {
   DUPLICATE_NAME,
   NO_DATA_EXISTS,
-  PARAMETER_INVALID,
+  PARAMETER_INVALID, 
 } from '../../constants/error'
 import { Handler } from '../../core/handler'
 import { User } from '../../models/index'

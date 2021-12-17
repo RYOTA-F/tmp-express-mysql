@@ -15,3 +15,8 @@ export interface IPutUserParams {
   name: string
   age: number
 }
+
+export interface IPostUserParams {
+  name: string
+  age: number
+}
