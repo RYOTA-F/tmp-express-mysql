@@ -9,3 +9,9 @@ export interface getPostsResponse {
   user_id: number
   content: string
 }
+
+export interface IPutUserParams {
+  id: number
+  name: string
+  age: number
+}

@@ -21,3 +21,12 @@ export const NO_DATA_EXISTS: ErrorCode = {
   type: 'NO_DATA_EXISTS',
   message: 'No data exists.',
 }
+
+/**
+ * 名前が重複している場合のエラー
+ */
+export const DUPLICATE_NAME: ErrorCode = {
+  status: 400,
+  type: 'DUPLICATE_NAME',
+  message: 'Duplicate Name.',
+}
