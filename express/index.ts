@@ -17,3 +17,5 @@ app.use('/', router)
 
 app.listen(port)
 console.log('listen on port ' + port)
+
+export default app
