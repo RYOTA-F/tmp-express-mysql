@@ -14,6 +14,15 @@ export const PARAMETER_INVALID: ErrorCode = {
 }
 
 /**
+ * 許可されないパラメーターの場合のエラー
+ */
+export const PARAMETER_UNAUTHORIZED: ErrorCode = {
+  status: 400,
+  type: 'PARAMETER_UNAUTHORIZED',
+  message: 'The parameter is Unauthorized.',
+}
+
+/**
  * データが存在しない場合のエラー
  */
 export const NO_DATA_EXISTS: ErrorCode = {

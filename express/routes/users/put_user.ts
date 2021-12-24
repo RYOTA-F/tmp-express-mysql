@@ -3,11 +3,13 @@ import { Op } from 'sequelize'
 import {
   DUPLICATE_NAME,
   NO_DATA_EXISTS,
-  PARAMETER_INVALID, 
+  PARAMETER_INVALID,
+  PARAMETER_UNAUTHORIZED,
 } from '../../constants/error'
 import { Handler } from '../../core/handler'
 import { User } from '../../models/index'
 import { IPutUserParams } from '../../types'
+import CheckUtils from '../../utils/check_params'
 
 export class PutUser {
   handler: Handler
@@ -24,12 +26,14 @@ export class PutUser {
   async main() {
     const validParams = ['id', 'name', 'age']
 
+    if (!CheckUtils.CheckPermissionParams(this.params, validParams)) {
+      return this.handler.error(PARAMETER_UNAUTHORIZED)
+    }
+
     if (
-      !this.params.id ||
       !Number(this.params.id) ||
-      (this.params.name && typeof this.params.name !== 'string') ||
-      (this.params.age && !Number(this.params.age)) ||
-      !Object.keys(this.params).every((Key) => validParams.includes(Key))
+      (this.params.name ? typeof this.params.name !== 'string' : false) ||
+      (this.params.age ? typeof this.params.age !== 'number' : false)
     ) {
       return this.handler.error(PARAMETER_INVALID)
     }
