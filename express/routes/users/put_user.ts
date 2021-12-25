@@ -9,7 +9,7 @@ import {
 import { Handler } from '../../core/handler'
 import { User } from '../../models/index'
 import { IPutUserParams } from '../../types'
-import CheckUtils from '../../utils/check_params'
+import CheckUtils from '../../utils/check'
 
 export class PutUser {
   handler: Handler
