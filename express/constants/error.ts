@@ -16,6 +16,15 @@ export const PARAMETER_INVALID: ErrorCode = {
 /**
  * 許可されないパラメーターの場合のエラー
  */
+export const PARAMETER_NOT_MAYCH: ErrorCode = {
+  status: 400,
+  type: 'PARAMETER_NOT_MAYCH',
+  message: 'The parameter not match.',
+}
+
+/**
+ * 許可されないパラメーターの場合のエラー
+ */
 export const PARAMETER_UNAUTHORIZED: ErrorCode = {
   status: 400,
   type: 'PARAMETER_UNAUTHORIZED',

@@ -1,8 +1,13 @@
 import { Request, Response } from 'express'
-import { DUPLICATE_NAME, PARAMETER_INVALID } from '../../constants/error'
+import {
+  PARAMETER_NOT_MAYCH,
+  DUPLICATE_NAME,
+  PARAMETER_INVALID,
+} from '../../constants/error'
 import { Handler } from '../../core/handler'
 import { User } from '../../models/index'
 import { IPostUserParams } from '../../types'
+import CheckUtils from '../../utils/check'
 
 export class PostUser {
   handler: Handler
@@ -19,10 +24,13 @@ export class PostUser {
   async main() {
     const validParams = ['name', 'age']
 
+    if (!CheckUtils.CheckMatchParams(this.params, validParams)) {
+      return this.handler.error(PARAMETER_NOT_MAYCH)
+    }
+
     if (
-      !this.params.name ||
-      !this.params.age ||
-      !Object.keys(this.params).every((Key) => validParams.includes(Key))
+      typeof this.params.name !== 'string' ||
+      typeof this.params.age !== 'number'
     ) {
       return this.handler.error(PARAMETER_INVALID)
     }
